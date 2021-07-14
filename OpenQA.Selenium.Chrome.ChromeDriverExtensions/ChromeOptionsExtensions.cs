@@ -38,7 +38,7 @@ function callbackFn(details)
 chrome.webRequest.onAuthRequired.addListener(
 	callbackFn,
 
-	{ urls:["" < all_urls>""] },
+	{ urls:[""<all_urls>""] },
     ['blocking']
 );";
 
