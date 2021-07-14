@@ -3,7 +3,7 @@ This extensions allows you to add an HTTP-proxy with authentication (username an
 
 ## Install NuGet package
 ```
-Install-Package OpenQA.Selenium.Chrome.ChromeDriverExtensions -Version 1.0.0
+Install-Package OpenQA.Selenium.Chrome.ChromeDriverExtensions -Version 1.1.0
 ```
 
 ## Using
