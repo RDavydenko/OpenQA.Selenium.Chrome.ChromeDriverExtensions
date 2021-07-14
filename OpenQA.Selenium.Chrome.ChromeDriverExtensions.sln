@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenQA.Selenium.Chrome.ChromeDriverExtensions", "OpenQA.Selenium.Chrome.ChromeDriverExtensions\OpenQA.Selenium.Chrome.ChromeDriverExtensions.csproj", "{6C266A75-EAEC-4688-9FE7-9693FE07EC96}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6C266A75-EAEC-4688-9FE7-9693FE07EC96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C266A75-EAEC-4688-9FE7-9693FE07EC96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C266A75-EAEC-4688-9FE7-9693FE07EC96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C266A75-EAEC-4688-9FE7-9693FE07EC96}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {10A64CE1-F379-472B-9A00-7820C35F5232}
+	EndGlobalSection
+EndGlobal
