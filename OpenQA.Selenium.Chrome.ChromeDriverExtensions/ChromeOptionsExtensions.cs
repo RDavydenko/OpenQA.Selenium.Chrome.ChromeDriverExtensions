@@ -9,6 +9,59 @@ namespace OpenQA.Selenium.Chrome.ChromeDriverExtensions
 	/// </summary>
 	public static class ChromeOptionsExtensions
 	{
+		private const string background_js = @"
+var config = {
+	mode: ""fixed_servers"",
+    rules: {
+        singleProxy: {
+            scheme: ""http"",
+            host: ""{HOST}"",
+            port: parseInt({PORT})
+        },
+        bypassList: []
+	}
+};
+
+chrome.proxy.settings.set({ value: config, scope: ""regular"" }, function() { });
+
+function callbackFn(details)
+{
+	return {
+		authCredentials:
+		{
+			username: ""{USERNAME}"",
+			password: ""{PASSWORD}""
+		}
+	};
+}
+
+chrome.webRequest.onAuthRequired.addListener(
+	callbackFn,
+
+	{ urls:["" < all_urls>""] },
+    ['blocking']
+);";
+
+		private const string manifest_json = @"
+{
+    ""version"": ""1.0.0"",
+    ""manifest_version"": 2,
+    ""name"": ""Chrome Proxy"",
+    ""permissions"": [
+        ""proxy"",
+        ""tabs"",
+        ""unlimitedStorage"",
+        ""storage"",
+        ""<all_urls>"",
+        ""webRequest"",
+        ""webRequestBlocking""
+    ],
+    ""background"": {
+        ""scripts"": [""background.js""]
+	},
+    ""minimum_chrome_version"":""22.0.0""
+}";
+
 		/// <summary>
 		/// Add HTTP-proxy by <paramref name="userName"/> and <paramref name="password"/>
 		/// </summary>
@@ -19,8 +72,7 @@ namespace OpenQA.Selenium.Chrome.ChromeDriverExtensions
 		/// <param name="password">Proxy password</param>
 		public static void AddHttpProxy(this ChromeOptions options, string host, int port, string userName, string password)
 		{
-			var manifest_json = File.ReadAllText("Templates/manifest.json");
-			var background_js = ReplaceTemplates((File.ReadAllText("Templates/background.js")), host, port, userName, password);
+			var background_proxy_js = ReplaceTemplates(background_js, host, port, userName, password);
 
 			if (!Directory.Exists("Plugins"))
 				Directory.CreateDirectory("Plugins");
@@ -32,7 +84,7 @@ namespace OpenQA.Selenium.Chrome.ChromeDriverExtensions
 			var archiveFilePath = $"Plugins/proxy_auth_plugin_{guid}.zip";
 
 			File.WriteAllText(manifestPath, manifest_json);
-			File.WriteAllText(backgroundPath, background_js);
+			File.WriteAllText(backgroundPath, background_proxy_js);
 
 			using (var zip = ZipFile.Open(archiveFilePath, ZipArchiveMode.Create))
 			{

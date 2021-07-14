@@ -6,22 +6,17 @@
     <Company>RDavydenko</Company>
     <Product>OpenQA.Selenium.Chrome</Product>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Description>This extensions allows you to add an HTTP-proxy with authentication (username and password) to ChromeDriver</Description>
+    <Description>This extensions allows you to add an HTTP-proxy with authentication (username and password) to Selenium.ChromeDriver</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <RepositoryUrl>https://github.com/RDavydenko/</RepositoryUrl>
+    <RepositoryUrl>https://github.com/RDavydenko/OpenQA.Selenium.Chrome.ChromeDriverExtensions</RepositoryUrl>
+    <PackageTags>Selenium, Chrome, ChromeDriver, Proxy, HttpProxy</PackageTags>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
+    <FileVersion>1.1.0.0</FileVersion>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Templates\background.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Templates\manifest.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>
