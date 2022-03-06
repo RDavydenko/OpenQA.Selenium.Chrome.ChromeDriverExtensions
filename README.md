@@ -21,3 +21,6 @@ var driver = new ChromeDriver(options); // or new ChromeDriver(AppDomain.Current
 
 driver.Navigate().GoToUrl("https://whatismyipaddress.com/"); // Check your IP
 ```
+
+## Links
+https://www.nuget.org/packages/OpenQA.Selenium.Chrome.ChromeDriverExtensions/
